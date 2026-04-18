@@ -12,8 +12,7 @@
 // Expand a window over string s
 // Track a count variable to know when all required chars are matched
 
-// Key Insight:
-// Window must always contain unique characters
+
 
 // Time Complexity: O(n+m)
 // Space Complexity: O(k)  // k = number of unique characters in s ∪ t
@@ -38,13 +37,18 @@ class Solution {
 
             map.put(s.charAt(r), map.getOrDefault(s.charAt(r), 0)-1);
             
-            while(count==t.length()){
-                starting_char = l; 
-                minlen=Math.min(minlen, r-l+1);
+            while(count == t.length()){
+                if (r - l + 1 < minlen) {
+                    minlen = r - l + 1;
+                    starting_char = l;
+                }
+
                 map.put(s.charAt(l), map.getOrDefault(s.charAt(l),0)+1);
-                if(map.get(s.charAt(l))>0){
+
+                if(map.get(s.charAt(l)) > 0){
                     count--;
                 }
+
                 l++;
             }
             r++;
