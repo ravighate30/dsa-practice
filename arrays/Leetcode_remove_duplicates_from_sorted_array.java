@@ -5,6 +5,7 @@
 // The first k elements of nums should contain the unique numbers in sorted order. The remaining elements beyond index k - 1 can be ignored.
 
 //Aproach : They don't really want you to remove the duplicates. They want you to sort the uniques at the front, then return the length of the sorted part. Then, behind the scenes, they slice the array at the length you give them and the result of that is what they check.
+//two pointers, anchor and scout approach where anchor sits at first known valid position and scouts searches for valid element
 
 //Tc : O(N)
 class Solution {
